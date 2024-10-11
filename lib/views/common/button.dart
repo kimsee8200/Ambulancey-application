@@ -37,3 +37,41 @@ class _LargeButtonState extends State<LargeButton> {
     );
   }
 }
+
+class SmallButton extends StatefulWidget {
+  final String text;
+  final VoidCallback onPressed;
+  final bool enabled;
+  const SmallButton({super.key, required this.text, required this.onPressed, this.enabled = true});
+
+  @override
+  State<SmallButton> createState() => _SmallButtonState();
+}
+class _SmallButtonState extends State<SmallButton> {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: widget.enabled ? widget.onPressed : null,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(15),
+        child: Container(
+          width: 90,
+          height: 30,
+          decoration: BoxDecoration(
+            color: widget.enabled ? blue400 : gray300,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 8,
+                spreadRadius: 2,
+                offset: const Offset(0, 4)
+              )
+            ]
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Center(child: Text(widget.text, style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold)))
+        )
+      )
+    );
+  }
+}
