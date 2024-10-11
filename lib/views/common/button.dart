@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:ambulancey/views/common/color.dart';
 
-class PrimaryButton extends StatefulWidget {
+class LargeButton extends StatefulWidget {
   final String text;
   final VoidCallback onPressed;
   final bool enabled;
-  const PrimaryButton({super.key, required this.text, required this.onPressed, this.enabled = true});
+  const LargeButton({super.key, required this.text, required this.onPressed, this.enabled = true});
 
   @override
-  State<PrimaryButton> createState() => _PrimaryButtonState();
+  State<LargeButton> createState() => _LargeButtonState();
 }
-class _PrimaryButtonState extends State<PrimaryButton> {
+class _LargeButtonState extends State<LargeButton> {
   @override
   Widget build(BuildContext context) {
     return InkWell(

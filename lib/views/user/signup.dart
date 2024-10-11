@@ -46,7 +46,7 @@ class _SignupState extends State<Signup> {
             })
           ),
           const SizedBox(height: 32),
-          PrimaryButton(
+          LargeButton(
             text: "다음으로",
             enabled: id.isNotEmpty && password.isNotEmpty && passwordRe.isNotEmpty,
             onPressed: (){}

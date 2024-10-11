@@ -38,7 +38,7 @@ class _LoginState extends State<Login> {
             })
           ),
           const SizedBox(height: 32),
-          PrimaryButton(
+          LargeButton(
             text: "로그인",
             enabled: id.isNotEmpty && password.isNotEmpty,
             onPressed: (){}
