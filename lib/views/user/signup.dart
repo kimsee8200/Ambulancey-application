@@ -49,7 +49,7 @@ class _SignupState extends State<Signup> {
           PrimaryButton(
             text: "다음으로",
             enabled: id.isNotEmpty && password.isNotEmpty && passwordRe.isNotEmpty,
-            onPressed: ()=>Navigator.pushReplacementNamed(context, '/survey')
+            onPressed: (){}
           ),
           const Spacer(),
           Row(
