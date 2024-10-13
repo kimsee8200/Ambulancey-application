@@ -6,6 +6,7 @@ class HospitalDetailModel {
   final String openTime;
   final bool isOpen;
   final String phone;
+  final double star;
   final List<int> reviews;
 
   const HospitalDetailModel({
@@ -16,6 +17,7 @@ class HospitalDetailModel {
     required this.openTime,
     required this.isOpen,
     required this.phone,
+    required this.star,
     required this.reviews
   });
 
@@ -28,6 +30,7 @@ class HospitalDetailModel {
       openTime: json['open_time'],
       isOpen: json['is_open'],
       phone: json['phone'],
+      star: json['star'],
       reviews: json['reviews']
     );
   }

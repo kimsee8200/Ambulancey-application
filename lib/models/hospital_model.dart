@@ -6,6 +6,7 @@ class HospitalModel {
   final String openTime;
   final bool isOpen;
   final String address;
+  final double star;
 
   const HospitalModel({
     required this.id,
@@ -14,7 +15,8 @@ class HospitalModel {
     required this.description,
     required this.openTime,
     required this.isOpen,
-    required this.address
+    required this.address,
+    required this.star
   });
 
   factory HospitalModel.fromJson(Map<String, dynamic> json) {
@@ -25,7 +27,8 @@ class HospitalModel {
       description: json['description'],
       openTime: json['open_time'],
       isOpen: json['is_open'],
-      address: json['address']
+      address: json['address'],
+      star: json['star']
     );
   }
 }
