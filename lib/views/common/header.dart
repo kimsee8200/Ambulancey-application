@@ -19,6 +19,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       ),
       child: AppBar(
         backgroundColor: white,
+        automaticallyImplyLeading: false,
         toolbarHeight: 90,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
