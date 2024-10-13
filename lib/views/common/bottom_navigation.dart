@@ -14,7 +14,7 @@ class BottomNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: 90,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
         boxShadow: [
@@ -27,8 +27,7 @@ class BottomNavigation extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: const BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
-        child:
-        BottomNavigationBar(
+        child: BottomNavigationBar(
           backgroundColor: white,
           selectedLabelStyle: const TextStyle(
             fontSize: 13
