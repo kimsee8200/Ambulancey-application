@@ -75,3 +75,63 @@ class _SmallButtonState extends State<SmallButton> {
     );
   }
 }
+
+class FloatingButton extends StatefulWidget {
+  final VoidCallback onPressed;
+  const FloatingButton({super.key, required this.onPressed});
+
+  @override
+  State<FloatingButton> createState() => _FloatingButtonState();
+}
+
+class _FloatingButtonState extends State<FloatingButton> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _rotateIcon() {
+    widget.onPressed();
+    _controller.reset();
+    _controller.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: _rotateIcon,
+      backgroundColor: blue400,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24)
+      ),
+      child: AnimatedBuilder(
+        animation: _animation,
+        child: const Icon(Icons.refresh, color: Colors.white, size: 32),
+        builder: (context, child) {
+          return Transform.rotate(
+            angle: _animation.value * 2 * 3.14159,
+            child: child
+          );
+        }
+      )
+    );
+  }
+}
