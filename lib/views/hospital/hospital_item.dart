@@ -49,7 +49,7 @@ class HospitalItem extends StatelessWidget {
               children: [
                 Star(star: data.star),
                 const SizedBox(width: 2),
-                Text('${data.star}'),
+                Text('${data.star}', style: const TextStyle(fontSize: 16, textBaseline: TextBaseline.ideographic)),
                 const Spacer(),
                 InkWell(
                   onTap: ()=>onTap(data.id),

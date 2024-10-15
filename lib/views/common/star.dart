@@ -12,12 +12,12 @@ class Star extends StatelessWidget {
         ...List.generate(
           star.toInt(),
           growable: false,
-          (index) => Image.asset('assets/star.png', height: 16, width: 20)
+          (index) => Image.asset('assets/star.png', height: 20, width: 24)
         ),
         ...List.generate(
           5 - star.toInt(),
           growable: false,
-          (index) => Image.asset('assets/star.png', height: 16, width: 20, color: gray400)
+          (index) => Image.asset('assets/star.png', height: 20, width: 24, color: gray400)
         )
       ]
     ) :
@@ -26,21 +26,21 @@ class Star extends StatelessWidget {
         ...List.generate(
           star.floor(),
           growable: false,
-          (index) => Image.asset('assets/star.png', height: 16, width: 20)
+          (index) => Image.asset('assets/star.png', height: 20, width: 24)
         ),
         Stack(
           children: [
-            Image.asset('assets/star.png', height: 16, width: 20, color: gray400),
+            Image.asset('assets/star.png', height: 20, width: 24, color: gray400),
             ClipPath(
               clipper: LeftClipper(percent: star - star.floor()),
-              child: Image.asset('assets/star.png', height: 16, width: 20)
+              child: Image.asset('assets/star.png', height: 20, width: 24)
             )
           ]
         ),
         ...List.generate(
           4 - star.floor(),
           growable: false,
-          (index) => Image.asset('assets/star.png', height: 16, width: 20, color: gray400)
+          (index) => Image.asset('assets/star.png', height: 20, width: 24, color: gray400)
         )
       ]
     );
