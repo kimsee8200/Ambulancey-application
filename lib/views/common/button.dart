@@ -78,6 +78,7 @@ class _SmallButtonState extends State<SmallButton> {
 
 class FloatingButton extends StatefulWidget {
   final VoidCallback onPressed;
+
   const FloatingButton({super.key, required this.onPressed});
 
   @override
@@ -93,7 +94,7 @@ class _FloatingButtonState extends State<FloatingButton> with SingleTickerProvid
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500)
     );
 
     _animation = CurvedAnimation(
@@ -118,13 +119,14 @@ class _FloatingButtonState extends State<FloatingButton> with SingleTickerProvid
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: _rotateIcon,
+      mini: true,
       backgroundColor: blue400,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(24)
+        borderRadius: BorderRadius.circular(16)
       ),
       child: AnimatedBuilder(
         animation: _animation,
-        child: const Icon(Icons.refresh, color: Colors.white, size: 32),
+        child: const Icon(Icons.refresh, color: Colors.white, size: 20),
         builder: (context, child) {
           return Transform.rotate(
             angle: _animation.value * 2 * 3.14159,

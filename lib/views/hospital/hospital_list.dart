@@ -40,11 +40,17 @@ class HospitalList extends StatelessWidget {
           )
         ),
         const SizedBox(height: 14),
-        ...List.generate(
-          data.length,
-          (int i)=>HospitalItem(
-            data: data[i],
-            onTap: (int id)=>onTap(id)
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: List.generate(
+                data.length*2,
+                  (int i)=>(i%2 == 0) ? HospitalItem(
+                  data: data[(i~/2)],
+                  onTap: (int id)=>onTap(id)
+                ) : const SizedBox(height: 25)
+              )
+            )
           )
         )
       ]
