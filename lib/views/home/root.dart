@@ -25,20 +25,20 @@ class _RootState extends State<Root> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: Header(title: _titles[_current]),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-        child: IndexedStack(
-          index: _current,
-          children: _pages
+    return SafeArea(
+      child: Scaffold(
+        appBar: Header(title: _titles[_current]),
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+          child: IndexedStack(
+            index: _current,
+            children: _pages
+          )
+        ),
+        bottomNavigationBar: BottomNavigation(
+          selectedIndex: _current,
+          onItemTapped: (i)=>setState(()=>_current = i)
         )
-      ),
-      bottomNavigationBar: BottomNavigation(
-        selectedIndex: _current,
-        onItemTapped: (i)=>setState(() {
-          _current = i;
-        })
       )
     );
   }
