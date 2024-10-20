@@ -1,3 +1,5 @@
+import 'package:ambulancey/models/review_model.dart';
+
 class HospitalDetailModel {
   final int id;
   final String name;
@@ -7,7 +9,7 @@ class HospitalDetailModel {
   final bool isOpen;
   final String phone;
   final double star;
-  final List<int> reviews;
+  final List<ReviewModel> reviews;
 
   const HospitalDetailModel({
     required this.id,
@@ -31,7 +33,9 @@ class HospitalDetailModel {
       isOpen: json['is_open'],
       phone: json['phone'],
       star: json['star'],
-      reviews: json['reviews']
+      reviews: (json['reviews'] as List<dynamic>)
+      .map((review) => ReviewModel.fromJson(review))
+      .toList()
     );
   }
 }
