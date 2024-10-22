@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ambulancey/models/hospital_model.dart';
-import 'package:ambulancey/views/hospital/hospital_list.dart';
 import 'package:ambulancey/views/common/button.dart';
+import 'package:ambulancey/views/hospital/hospital_list.dart';
+import 'package:ambulancey/views/hospital/hospital_detail.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,8 +12,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  void showHospitalDetail(int i){}
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +58,7 @@ class _HomeState extends State<Home> {
             star: 4.0
           )
         ],
-        onTap: (_){}
+        onTap: (int id)=>Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalDetail(id: id)))
       ),
       floatingActionButton: FloatingButton(onPressed: (){})
     );
