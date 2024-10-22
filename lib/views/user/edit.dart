@@ -5,14 +5,14 @@ import 'package:ambulancey/views/common/color.dart';
 import 'package:ambulancey/views/common/input.dart';
 import 'package:ambulancey/views/common/button.dart';
 
-class Signup extends StatefulWidget {
-  const Signup({super.key});
+class Edit extends StatefulWidget {
+  const Edit({super.key});
 
   @override
-  State<Signup> createState() => _SignupState();
+  State<Edit> createState() => _EditState();
 }
 
-class _SignupState extends State<Signup> {
+class _EditState extends State<Edit> {
   String id = "";
   String password = "";
   String newPassword = "";

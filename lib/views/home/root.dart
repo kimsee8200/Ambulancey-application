@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ambulancey/views/common/bottom_navigation.dart';
 import 'package:ambulancey/views/common/header.dart';
 import 'package:ambulancey/views/home/home.dart';
+import 'package:ambulancey/views/home/mypage.dart';
 
 class Root extends StatefulWidget {
   const Root({super.key});
@@ -14,7 +15,7 @@ class _RootState extends State<Root> {
   int _current = 0;
   final List<Widget> _pages = [
     const Home(),
-    const Text("2"),
+    const MyPage(),
     const Text("3")
   ];
   final List<String> _titles = [
