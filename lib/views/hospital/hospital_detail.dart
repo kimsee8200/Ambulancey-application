@@ -5,6 +5,7 @@ import 'package:ambulancey/views/common/star.dart';
 import 'package:ambulancey/views/common/color.dart';
 import 'package:ambulancey/views/common/dialog.dart';
 import 'package:ambulancey/views/common/editable_star.dart';
+import 'package:ambulancey/views/common/sub_page_template.dart';
 import 'package:ambulancey/views/hospital/review_item.dart';
 
 class HospitalDetail extends StatefulWidget {
@@ -53,36 +54,12 @@ class _HospitalDetailState extends State<HospitalDetail> {
           final isDone = (snap.connectionState == ConnectionState.done);
           final HospitalDetailModel? data = snap.data;
           return Scaffold(
-            body: SingleChildScrollView( // Added this line
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(24, 32, 24, 0),
+            body: SingleChildScrollView(
+              child: SubpageTemplate(
+                title: isDone ? data!.name : 'Loading...',
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        IconButton(
-                          onPressed: () => Navigator.pop(context),
-                          icon: const Icon(
-                            Icons.arrow_back_ios_rounded,
-                            size: 32,
-                            color: gray500,
-                          )
-                        ),
-                        Expanded( // Added this line
-                          child: Text(
-                            isDone ? data!.name : 'Loading...',
-                            style: const TextStyle(
-                              color: blue900,
-                              fontSize: 24,
-                              fontWeight: FontWeight.w700,
-                            ),
-                            overflow: TextOverflow.ellipsis, // Added this line
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
                     Text(
                       '설명: ${isDone ? data!.description : ''}',
                       style: const TextStyle(color: gray500, fontSize: 18),
@@ -93,7 +70,7 @@ class _HospitalDetailState extends State<HospitalDetail> {
                     ),
                     const SizedBox(height: 12),
                     Container(width: double.infinity, height: 2, color: gray400),
-                      const SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -106,38 +83,38 @@ class _HospitalDetailState extends State<HospitalDetail> {
                         Text(
                           '${isDone ? data!.star : 0}(평균)',
                           style: const TextStyle(color: gray700, fontSize: 18),
-                        ),
-                      ],
+                        )
+                      ]
                     ),
                     const SizedBox(height: 20),
                     ...List.generate(5, (i) {
                       i = 4-i;
                       final count = isDone ? data!.reviews.where((e) => e.star.floor() == i + 1).length : 0;
                       return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Row(
-                          children: [
-                            Text(
-                              '${i + 1}점',
-                              style: const TextStyle(color: gray500, fontSize: 14),
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded( // Added this line
-                              child: LinearProgressIndicator(
-                                value: count / (isDone ? data!.reviews.length : 1),
-                                color: blue400,
-                                backgroundColor: gray300,
-                                minHeight: 20,
-                                borderRadius: BorderRadius.circular(10),
+                          padding: const EdgeInsets.symmetric(vertical: 5),
+                          child: Row(
+                            children: [
+                              Text(
+                                '${i + 1}점',
+                                style: const TextStyle(color: gray500, fontSize: 14),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: LinearProgressIndicator(
+                                  value: count / (isDone ? data!.reviews.length : 1),
+                                  color: blue400,
+                                  backgroundColor: gray300,
+                                  minHeight: 20,
+                                  borderRadius: BorderRadius.circular(10),
+                                )
+                              ),
+                              const SizedBox(width: 12),
+                              Text(
+                                '$count건',
+                                style: const TextStyle(color: gray500, fontSize: 14),
                               )
-                            ),
-                            const SizedBox(width: 12),
-                            Text(
-                              '$count건',
-                              style: const TextStyle(color: gray500, fontSize: 14),
-                            )
-                          ]
-                        )
+                            ]
+                          )
                       );
                     }),
                     const SizedBox(height: 14),
@@ -152,7 +129,7 @@ class _HospitalDetailState extends State<HospitalDetail> {
                       )
                     ),
                     Text(
-                      '${isDone ? data!.reviews.length : 0}건',
+                        '${isDone ? data!.reviews.length : 0}건',
                       style: const TextStyle(
                         color: gray500,
                         fontSize: 16
