@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ambulancey/models/hospital_model.dart';
 import 'package:ambulancey/views/common/button.dart';
 import 'package:ambulancey/views/hospital/hospital_list.dart';
-import 'package:ambulancey/views/hospital/hospital_detail.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -58,7 +57,7 @@ class _HomeState extends State<Home> {
             star: 4.0
           )
         ],
-        onTap: (int id)=>Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalDetail(id: id)))
+        onTap: (int id) => Navigator.pushNamed(context, '/hospital/:id', arguments: {'id': id})
       ),
       floatingActionButton: FloatingButton(onPressed: (){})
     );

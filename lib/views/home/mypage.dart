@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ambulancey/views/common/color.dart';
-import 'package:ambulancey/views/common/button.dart';
+import 'package:ambulancey/views/common/dialog.dart';
 import 'package:ambulancey/views/common/chip.dart';
 
 class MyPage extends StatefulWidget {
@@ -50,10 +50,24 @@ class _MyPageState extends State<MyPage> {
           Align(
             alignment: Alignment.bottomRight,
             child: InkWell(
-              onTap: (){},
+              onTap: ()=>showDialog(
+                context: context,
+                builder: (context) => ModalDialog(
+                  title: '알림',
+                  child: const Text(
+                    '정말로 로그아웃을 하시겠습니까?',
+                    style: TextStyle(
+                      color: gray600,
+                      fontSize: 20
+                    )
+                  ),
+                  onAccept: (){},
+                  onReject: (){}
+                )
+              ),
               splashColor: gray50,
               child: const Text(
-                '회원정보 수정',
+                '로그아웃',
                 style: TextStyle(
                   color: gray500,
                   fontSize: 16
@@ -71,13 +85,27 @@ class _MyPageState extends State<MyPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                  onTap: (){},
+                  onTap: ()=>Navigator.pushNamed(context, '/edit'),
                   child: const FilledChip(
                     label: '회원정보 수정'
                   )
                 ),
                 InkWell(
-                  onTap: (){},
+                  onTap: ()=>showDialog(
+                    context: context,
+                    builder: (context) => ModalDialog(
+                      title: '알림',
+                      child: const Text(
+                        '정말로 회원탈퇴를 하시겠습니까?',
+                        style: TextStyle(
+                          color: gray600,
+                          fontSize: 20
+                        )
+                      ),
+                      onAccept: (){},
+                      onReject: (){}
+                    )
+                  ),
                   splashColor: criticalBackground,
                   child: const Text(
                     '회원탈퇴',

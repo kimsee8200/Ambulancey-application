@@ -3,6 +3,7 @@ import 'package:ambulancey/views/common/bottom_navigation.dart';
 import 'package:ambulancey/views/common/header.dart';
 import 'package:ambulancey/views/home/home.dart';
 import 'package:ambulancey/views/home/mypage.dart';
+import 'package:ambulancey/views/home/self_diagnosis.dart';
 
 class Root extends StatefulWidget {
   const Root({super.key});
@@ -16,7 +17,7 @@ class _RootState extends State<Root> {
   final List<Widget> _pages = [
     const Home(),
     const MyPage(),
-    const Text("3")
+    const SelfDiagnosis()
   ];
   final List<String> _titles = [
     '홈',

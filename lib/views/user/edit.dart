@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ambulancey/views/common/default_view.dart';
 import 'package:ambulancey/views/common/logo.dart';
-import 'package:ambulancey/views/common/color.dart';
 import 'package:ambulancey/views/common/input.dart';
 import 'package:ambulancey/views/common/button.dart';
 
